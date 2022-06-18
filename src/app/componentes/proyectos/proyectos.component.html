@@ -1,0 +1,43 @@
+<!-- PROYECTOS -->
+
+<div class="content">
+  <div class="d-flex justify-content-center">
+    <h3 class="titulo">Proyectos</h3>
+    <div>
+      <button *ngIf="esModoEditar" (click)="openModalWithComponent(null)" class="btn btn-outline-info buttonew"
+        type="button" data-toggle="tooltip" data-placement="top" title="Agregar nuevo proyecto">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-6" *ngFor=" let proyecto of listaProyectos">
+      <div class="cards">
+        <div *ngIf="esModoEditar">
+          <button (click)="openDeleteModal(proyecto)" class="btn btn-outline-danger float-end button" type="button"
+            data-toggle="tooltip" data-placement="top" title="Borrar proyecto">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+          <button (click)="openModalWithComponent(proyecto)" class="btn btn-outline-success float-end button"
+            type="button" data-toggle="tooltip" data-placement="top" title="Editar proyecto">
+            <i class="fa fa-paint-brush"></i>
+          </button>
+        </div>
+        <img src="{{proyecto.foto_proyecto}}" class="img-fluid rounded-circle img">
+        <div class="card">
+          <div class="card-body">
+            <h4>Nombre del proyecto:</h4>
+            <h5>{{proyecto.nombre_proyecto}}</h5>
+            <h4>Descripción:</h4>
+            <h5>{{proyecto.descripcion}}</h5>
+            <h4>Url de referencia:</h4>
+            <div *ngIf="proyecto.url_proyecto; else elseBlock">
+              <h5>{{proyecto.url_proyecto}}</h5>
+            </div>
+            <ng-template #elseBlock> - </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

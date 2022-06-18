@@ -1,0 +1,60 @@
+<!-- EDUCACION -->
+
+<div class="content">
+  <div class="d-flex justify-content-center">
+    <h3 class="titulo">Educación</h3>
+    <div>
+      <button *ngIf="esModoEditar" (click)="openModalWithComponent(null)" class="btn btn-outline-info buttonew"
+        type="button" data-toggle="tooltip" data-placement="top" title="Agregar nuevo estudio">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-6" *ngFor=" let estudio of listaEducacion">
+      <div class="cards">
+        <div *ngIf="esModoEditar">
+          <button (click)="openDeleteModal(estudio)" class="btn btn-outline-danger button" type="button"
+            data-toggle="tooltip" data-placement="top" title="Borrar estudio">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+          <button (click)="openModalWithComponent(estudio)" class="btn btn-outline-success button" type="button"
+            data-toggle="tooltip" data-placement="top" title="Editar estudio">
+            <i class="fa fa-paint-brush"></i>
+          </button>
+        </div>
+        <img src="{{estudio.foto_educacion}}" class="img-fluid rounded-circle img">
+        <div class="card">
+          <div class="card-body">
+            <h4>Nombre de la institución:</h4>
+            <h5>{{estudio.nombre_instituto}}</h5>
+            <h4>En curso:</h4>
+            <div *ngIf="estudio.en_curso">
+              <div class="form-check form-switch">
+                <input class="form-check-input switch" type="checkbox" checked disabled>
+                <label class="form-check-label">Sí</label>
+              </div>
+            </div>
+            <div *ngIf="!estudio.en_curso">
+              <div class="form-check form-switch">
+                <input class="form-check-input switchoff" type="checkbox" disabled>
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+            <h4>Fecha de inicio:</h4>
+            <h5>{{estudio.fecha_inicio | date: "dd/MMM/YYYY"}}</h5>
+            <h4>Fecha de fin:</h4>
+            <div *ngIf="!estudio.en_curso, else elseBlock">
+              <h5>{{estudio.fecha_fin | date: "dd/MMM/YYYY"}}</h5>
+            </div>
+            <ng-template #elseBlock> - </ng-template>
+            <h4>Categoría de empleo:</h4>
+            <h5>{{buscarTipoEmpleo(estudio.titulo_id)}}</h5>
+            <h4>Descripción:</h4>
+            <h5>{{estudio.descripcion}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

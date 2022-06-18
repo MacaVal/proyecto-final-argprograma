@@ -1,0 +1,41 @@
+<!-- APTITUDES -->
+
+<div class="content">
+  <div class="d-flex justify-content-center">
+    <h3 class="titulo">Hard & soft skills</h3>
+    <div>
+      <button *ngIf="esModoEditar" (click)="openModalWithComponent(null)" class="btn btn-outline-info buttonew"
+        type="button" data-toggle="tooltip" data-placement="top" title="Agregar nueva skill">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="parent">
+    <div class="svg-item child" *ngFor=" let aptitud of listaAptitudes; let i = index" [attr.data-index]="i">
+      <svg width="50%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="{{getColor(i)}}" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"
+          attr.stroke-dasharray="{{aptitud.porcentaje}} {{100-aptitud.porcentaje}}" stroke-dashoffset="25"></circle>
+        <g class="{{getTextColor(i)}}">
+          <text y="45%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-percent">{{aptitud.porcentaje}}%</tspan>
+          </text>
+          <text y="58%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-data">{{aptitud.nombre_aptitud}}</tspan>
+          </text>
+        </g>
+      </svg>
+      <div *ngIf="esModoEditar">
+        <button (click)="openDeleteModal(aptitud)" class="btn btn-outline-danger float-end button" type="button"
+          data-toggle="tooltip" data-placement="top" title="Borrar skill">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <button (click)="openModalWithComponent(aptitud)" class="btn btn-outline-success float-end button" type="button"
+          data-toggle="tooltip" data-placement="top" title="Editar skill">
+          <i class="fa fa-paint-brush"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

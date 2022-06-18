@@ -1,0 +1,22 @@
+<div>
+  <div class="modal-header">
+    <h5 class="modal-title">Login</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="mail" class="form-label labels">Email</label>
+        <input size="30" type="text" class="inputsCortos" formControlName="mail" id="mail">
+        <div id="emailHelp" class="form-text">No compartiremos tu email con nadie.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label labels">Contraseña</label>
+        <input size="30" type="password" class="inputsCortos" formControlName="password" id="password">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-info">Ingresar</button>
+      </div>
+    </form>
+  </div>
+</div>

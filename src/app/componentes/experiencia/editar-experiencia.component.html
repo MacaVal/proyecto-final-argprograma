@@ -1,0 +1,59 @@
+<div>
+  <div class="modal-header">
+    <h5 class="modal-title">Información Experiencia Laboral</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="experienciaForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="cargo" class="form-label labels">Cargo</label>
+        <input type="text" class="inputs" formControlName="cargo" id="cargo">
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label labels">Nombre de la empresa</label>
+        <input size="55" type="text" class="inputs" formControlName="nombre_empresa" id="nombre_empresa">
+      </div>
+      <div>
+        <div class="mb-3">
+          <label for="esActual" class="form-label labels">Es actual</label>
+          <div class="form-check form-switch">
+            <input class="form-check-input"
+              [ngClass]="{switch: experienciaForm.value.es_actual, switchoff: !experienciaForm.value.es_actual}"
+              type="checkbox" formControlName="es_actual" id="es_actual">
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="fechaInicio" class="form-label labels">Fecha de inicio</label>
+        <input size="55" type="date" class="inputsCortos" formControlName="fecha_inicio" id="fecha_inicio">
+      </div>
+      <div class="mb-3">
+        <label for="fechaFin" class="form-label labels">Fecha fin</label>
+        <div *ngIf="!experienciaForm.value.es_actual; else elseBlock">
+          <input size="55" type="date" class="inputsCortos" formControlName="fecha_fin" id="fecha_fin">
+        </div>
+        <ng-template #elseBlock> - </ng-template>
+      </div>
+      <div class="mb-3">
+        <label for="tipoEmpleo" class="form-label labels">Categoría de empleo</label>
+        <select class="form-select inputs" aria-label="Tipo de empleo" formControlName="tipo_empleo_id">
+          <option hidden selected>Elegir categoría de empleo</option>
+          <option *ngFor="let tipoEmpleo of listaTipoEmpleos" [ngValue]="tipoEmpleo.id">{{tipoEmpleo.nombre_tipo}}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label labels">Descripción</label>
+        <textarea cols="55" rows="5" type="text" class="inputs" formControlName="descripcion"
+          id="descripcion"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="fotoExperiencia" class="form-label labels">Link foto experiencia laboral</label>
+        <input size="55" type="text" class="inputs center" formControlName="foto_experiencia" id="foto_experiencia">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-info">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+      </div>
+    </form>
+  </div>
+</div>

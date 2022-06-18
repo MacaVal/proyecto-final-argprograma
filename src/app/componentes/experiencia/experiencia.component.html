@@ -1,0 +1,62 @@
+<!-- EXPERIENCIA -->
+
+<div class="content">
+  <div class="d-flex justify-content-center">
+    <h3 class="titulo">Experiencia</h3>
+    <div>
+      <button *ngIf="esModoEditar" (click)="openModalWithComponent(null)" class="btn btn-outline-info buttonew"
+        type="button" data-toggle="tooltip" data-placement="top" title="Agregar nueva experiencia">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-6" *ngFor=" let experiencia of listaExperiencias">
+      <div class="cards">
+        <div *ngIf="esModoEditar">
+          <button class="btn btn-outline-danger float-end button" type="button" data-toggle="tooltip"
+            data-placement="top" (click)="openDeleteModal(experiencia)" title="Borrar experiencia">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+          <button (click)="openModalWithComponent(experiencia)" class="btn btn-outline-success float-end button"
+            type="button" data-toggle="tooltip" data-placement="top" title="Editar experiencia">
+            <i class="fa fa-paint-brush"></i>
+          </button>
+        </div>
+        <img src="{{experiencia.foto_experiencia}}" class="img-fluid rounded-circle img">
+        <div class="card">
+          <div class="card-body">
+            <h4>Cargo:</h4>
+            <h5>{{experiencia.cargo}}</h5>
+            <h4>Nombre de la empresa:</h4>
+            <h5>{{experiencia.nombre_empresa}}</h5>
+            <h4>Es actual:</h4>
+            <div *ngIf="experiencia.es_actual">
+              <div class="form-check form-switch">
+                <input class="form-check-input switch" type="checkbox" checked disabled>
+                <label class="form-check-label">Sí</label>
+              </div>
+            </div>
+            <div *ngIf="!experiencia.es_actual">
+              <div class="form-check form-switch">
+                <input class="form-check-input switchoff" type="checkbox" disabled>
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+            <h4>Fecha de inicio:</h4>
+            <h5>{{experiencia.fecha_inicio | date: "dd/MMM/YYYY"}}</h5>
+            <h4>Fecha de fin:</h4>
+            <div *ngIf="!experiencia.es_actual; else elseBlock">
+              <h5>{{experiencia.fecha_fin | date: "dd/MMM/YYYY"}}</h5>
+            </div>
+            <ng-template #elseBlock> - </ng-template>
+            <h4>Categoría de empleo:</h4>
+            <h5>{{buscarTipoEmpleo(experiencia.tipo_empleo_id)}}</h5>
+            <h4>Descripción:</h4>
+            <h5>{{experiencia.descripcion}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

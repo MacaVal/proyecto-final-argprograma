@@ -1,0 +1,12 @@
+.banner {
+    background-size: cover;
+    background-position: center center;
+}
+
+.profile-img {
+    width: 23%;
+    height: auto;
+    border: 3px solid rgb(205, 127, 224);
+    margin-top: -10%;
+    margin-left: 5%;
+}

@@ -1,0 +1,38 @@
+<div>
+  <div class="modal-header">
+    <h5 class="modal-title">Información Perfil</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+  </div>
+  <div class="modal-body" *ngIf="personaLogueada">
+    <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label labels">Nombre</label>
+        <input size="55" type="text" class="inputs" formControlName="nombre" id="nombre">
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label labels">Apellido</label>
+        <input size="55" type="text" class="inputs" formControlName="apellido" id="apellido">
+      </div>
+      <div class="mb-3">
+        <label for="titulo" class="form-label labels">Título</label>
+        <input size="55" type="text" class="inputs" formControlName="titulo" id="titulo">
+      </div>
+      <div class="mb-3">
+        <label for="acercaDeMi" class="form-label labels">Acerca de mi</label>
+        <textarea cols="55" rows="5" type="text" class="inputs" formControlName="acerca_de_mi"
+          id="acerca_de_mi"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="fotoPerfil" class="form-label labels">Link foto perfil</label>
+        <input size="55" type="text" class="inputs center" formControlName="url_foto" id="url_foto">
+      </div>
+      <div class="mb-3">
+        <label for="fotoBanner" class="form-label labels">Link foto banner</label>
+        <input size="55" type="text" class="inputs center" formControlName="url_banner" id="url_banner">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-info">Actualizar perfil</button>
+      </div>
+    </form>
+  </div>
+</div>

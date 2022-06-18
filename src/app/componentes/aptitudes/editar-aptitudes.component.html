@@ -1,0 +1,21 @@
+<div>
+  <div class="modal-header">
+    <h5 class="modal-title">Información Experiencia laboral</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="aptitudesForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label labels">Aptitud</label>
+        <input size="30" type="text" class="inputs" formControlName="nombre_aptitud" id="nombre_empresa">
+      </div>
+      <div class="mb-3">
+        <label for="fechaInicio" class="form-label labels">Porcentaje</label>
+        <input size="30" type="text" class="inputs" formControlName="porcentaje" id="fecha_inicio">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-info">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+      </div>
+    </form>
+  </div>
+</div>

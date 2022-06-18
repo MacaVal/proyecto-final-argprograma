@@ -1,0 +1,92 @@
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+H1 {
+    color:rgb(205, 127, 224);
+}
+
+H5, H6 {
+    color:rgb(102, 37, 121);
+}
+
+H3 {
+    font-size:x-large;
+    font-style: italic;
+    color:rgb(188, 85, 214);
+    text-decoration:underline;
+    text-decoration-color:rgb(208, 195, 216) ;
+}
+
+H2, H4 {
+    color:mediumpurple;
+}
+
+p {
+    font-size:x-large;
+    color:rgb(102, 37, 121);
+}
+
+.content {
+    max-width: 95%;
+    margin: auto;
+}
+
+.cards {
+    margin: 10px;
+}
+
+.text {
+    padding-bottom:10px;
+}
+
+.inputsCortos {
+    border-color:rgb(205, 127, 224);
+}
+
+.inputs {
+    border-color:rgb(205, 127, 224);
+    width: 29em;
+}
+
+.labels {
+    color:rgb(102, 37, 121);
+    font-weight:500;
+}
+
+input, label {
+    display:block;
+}
+
+.switch {
+    background-color:rgb(102, 37, 121);
+    border-color:rgb(205, 127, 224);
+}
+.switchoff {
+    border-color:rgb(205, 127, 224);
+}
+.img {
+    width:25%;
+    border: 3px solid rgb(205, 127, 224);
+    height: fit-content;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float:left;
+}
+
+.button {
+    margin-left: 10px;
+    margin-top: 2px;
+    float: right;
+}
+
+.buttonew {
+    margin-left: 10px;
+    margin-top: 25px;
+}
+
+.titulo {
+    margin:25px;
+    margin-right:0px;
+}

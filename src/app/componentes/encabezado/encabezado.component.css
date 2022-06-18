@@ -1,0 +1,23 @@
+.my-navbar {
+    background-color: rgb(205, 127, 224);
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.nav-img {
+    width: 475px;
+}
+
+.round-img {
+    border-radius: 0px 15px 15px 0px;
+}
+
+.marginbutton {
+    margin: 4px;
+}
+
+.marginlogos {
+    margin-top: 7px;
+    margin-left: 4px;
+}

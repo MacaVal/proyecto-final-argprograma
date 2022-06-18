@@ -1,0 +1,56 @@
+<div>
+  <div class="modal-header">
+    <h5 class="modal-title">Información Estudio</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="educacionForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label labels">Nombre de la institución</label>
+        <input size="55" type="text" class="inputs" formControlName="nombre_instituto" id="nombre_instituto">
+      </div>
+      <div>
+        <div class="mb-3">
+          <label for="enCurso" class="form-label labels">En curso</label>
+          <div class="form-check form-switch">
+            <input class="form-check-input"
+              [ngClass]="{switch: educacionForm.value.en_curso, switchoff: !educacionForm.value.en_curso}"
+              type="checkbox" formControlName="en_curso" id="en_curso">
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="fechaInicio" class="form-label labels">Fecha de inicio</label>
+        <input size="30" type="date" class="inputs" formControlName="fecha_inicio" id="fecha_inicio">
+      </div>
+      <div class="mb-3">
+        <label for="fechaFin" class="form-label labels">Fecha fin</label>
+        <div *ngIf="!educacionForm.value.en_curso; else elseBlock">
+          <input size="56" type="date" class="inputs" formControlName="fecha_fin" id="fecha_fin">
+        </div>
+        <ng-template #elseBlock> - </ng-template>
+      </div>
+
+      <div class="mb-3">
+        <label for="título" class="form-label labels">Título</label>
+        <select class="form-select inputs" aria-label="Título" formControlName="titulo_id">
+          <option hidden selected>Elegir título</option>
+          <option *ngFor="let titulo of listaTitulos" [ngValue]="titulo.id">{{titulo.nombre_titulo}}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label labels">Descripción</label>
+        <textarea cols="55" rows="5" type="text" class="inputs" formControlName="descripcion"
+          id="descripcion"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="fotoEducacion" class="form-label labels">Link foto estudio</label>
+        <input size="55" type="text" class="inputs center" formControlName="foto_educacion" id="foto_educacion">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-info">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+      </div>
+    </form>
+  </div>
+</div>
