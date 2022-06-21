@@ -55,27 +55,19 @@ export class AptitudesComponent implements OnInit, OnDestroy {
   }
 
   openDeleteModal(aptitudToDelete: Aptitud) {
-
     const initialState = {
       aptitud: aptitudToDelete
     };
 
-    // Open up the modal
     this.bsDelModalRef = this.delModalService.show(BorrarAptitudesComponent, { initialState });
     this.bsDelModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsDelModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando aptitudes")
       this.listarAptitudes();
     })
   }
 
   openModalWithComponent(aptitudToEdit: Aptitud) {
-    console.log("Modo Editar", this.authService.getModoEditar())
-    console.log("Aptitud before edit", aptitudToEdit, this.personaCargadaId)
-
-    // Setup initial state for modal
     const initialState = {
       personaCargadaId: this.personaCargadaId,
       aptitud: aptitudToEdit,
@@ -83,13 +75,10 @@ export class AptitudesComponent implements OnInit, OnDestroy {
       listaAptitudes: this.listaAptitudes
     };
 
-    // Open up the modal
     this.bsModalRef = this.modalService.show(EditarAptitudesComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando experiencias")
       this.listarAptitudes()
     })
   }

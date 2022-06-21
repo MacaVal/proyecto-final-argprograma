@@ -33,25 +33,19 @@ export class BorrarAptitudesComponent implements OnInit {
   }
 
   borrarAptitud(id: number): void {
-    console.log("Deleting...");
     this.aptitudesService.delete(id).subscribe(
       () => {
-        // volver a listar o actualizar lista
         this.triggerEvent();
-        // cerras el modal
         this.bsDelModalRef.hide();
       }
     )
   }
 
   onClose(): void {
-    console.log("Closing modal...");
     this.bsDelModalRef.hide();
   }
 
   triggerEvent() {
-    // emit modal's response
-    console.log("Sending response from modal...");
     this.refreshEvent.emit();
   }
 }

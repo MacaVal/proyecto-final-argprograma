@@ -40,8 +40,6 @@ export class EditarEducacionComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // llamar a editar educacion con la educacion editada
-    console.log("Applying change to Server...", this.educacionForm);
     if (this.educacionForm.value.en_curso) {
       this.educacionForm.patchValue({ fecha_fin: null });
     }
@@ -55,16 +53,13 @@ export class EditarEducacionComponent implements OnInit {
   }
 
   onClose(): void {
-    console.log("Closing modal...");
     this.bsModalRef.hide();
   }
 
   editarEstudioEnApi(id: number, estudio: Estudio): void {
     this.educacionService.edit(id, estudio).subscribe({
       next: data => {
-        console.log("Editar Educacion Service: " + data);
         this.editarEstudio(this.educacionForm.value);
-        // cerras el modal
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -74,11 +69,7 @@ export class EditarEducacionComponent implements OnInit {
   crearEstudioEnApi(estudio: Estudio): void {
     this.educacionService.new(this.educacionForm.value).subscribe({
       next: data => {
-        console.log("Nueva Educacion Service: " + data);
-
-        // volver a listar o actualizar lista
-        this.triggerEvent()
-        // cerras el modal
+        this.triggerEvent();
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -96,8 +87,6 @@ export class EditarEducacionComponent implements OnInit {
   }
 
   triggerEvent() {
-    // emit modal's response
-    console.log("Sending response from modal...");
     this.refreshEvent.emit();
   }
 }

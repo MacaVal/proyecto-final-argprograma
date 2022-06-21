@@ -50,27 +50,19 @@ export class EducacionComponent implements OnInit, OnDestroy {
   }
 
   openDeleteModal(estudioToDelete: Estudio) {
-
     const initialState = {
       estudio: estudioToDelete
     };
 
-    // Open up the modal
     this.bsDelModalRef = this.delModalService.show(BorrarEducacionComponent, { initialState });
     this.bsDelModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsDelModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando educacion")
       this.listarEducacion();
     })
   }
 
   openModalWithComponent(estudioToEdit: Estudio) {
-    console.log("Modo Editar", this.authService.getModoEditar())
-    console.log("Estudio before edit", estudioToEdit, this.personaCargadaId)
-
-    // Setup initial state for modal
     const initialState = {
       personaCargadaId: this.personaCargadaId,
       estudio: estudioToEdit,
@@ -78,13 +70,10 @@ export class EducacionComponent implements OnInit, OnDestroy {
       listaTitulos: this.listaTitulos
     };
 
-    // Open up the modal
     this.bsModalRef = this.modalService.show(EditarEducacionComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando educacion")
       this.listarEducacion()
     })
   }

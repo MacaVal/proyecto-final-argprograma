@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AptitudesService } from '../service/aptitudes.service';
@@ -33,8 +33,6 @@ export class EditarAptitudesComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // llamar a editar educacion con la educacion editada
-    console.log("Applying change to Server...", this.aptitudesForm);
     if (this.aptitudesForm.value.es_actual) {
       this.aptitudesForm.patchValue({ fecha_fin: null });
     }
@@ -48,16 +46,13 @@ export class EditarAptitudesComponent implements OnInit {
   }
 
   onClose(): void {
-    console.log("Closing modal...");
     this.bsModalRef.hide();
   }
 
   editarAptitudEnApi(id: number, aptitud: Aptitud): void {
     this.aptitudesService.edit(id, aptitud).subscribe({
       next: data => {
-        console.log("Editar Aptitud Service: " + data);
         this.editarAptitud(this.aptitudesForm.value);
-        // cerras el modal
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -67,11 +62,7 @@ export class EditarAptitudesComponent implements OnInit {
   crearAptitudEnApi(aptitud: Aptitud): void {
     this.aptitudesService.new(this.aptitudesForm.value).subscribe({
       next: data => {
-        console.log("Nueva Aptitud Service: " + data);
-
-        // volver a listar o actualizar lista
-        this.triggerEvent()
-        // cerras el modal
+        this.triggerEvent();
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -84,8 +75,6 @@ export class EditarAptitudesComponent implements OnInit {
   }
 
   triggerEvent() {
-    // emit modal's response
-    console.log("Sending response from modal...");
     this.refreshEvent.emit();
   }
 }

@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EducacionService } from '../service/educacion.service';
 import { Estudio } from '../models/educacion';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-borrar-educacion',
@@ -34,25 +33,19 @@ export class BorrarEducacionComponent implements OnInit {
   }
 
   borrarEstudio(id: number): void {
-    console.log("Deleting...");
     this.educacionService.delete(id).subscribe(
       () => {
-        // volver a listar o actualizar lista
         this.triggerEvent();
-        // cerras el modal
         this.bsDelModalRef.hide();
       }
     )
   }
 
   onClose(): void {
-    console.log("Closing modal...");
     this.bsDelModalRef.hide();
   }
 
   triggerEvent() {
-    // emit modal's response
-    console.log("Sending response from modal...");
     this.refreshEvent.emit();
   }
 }
