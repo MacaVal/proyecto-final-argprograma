@@ -41,8 +41,6 @@ export class EditarExperienciaComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // llamar a editar educacion con la educacion editada
-    console.log("Applying change to Server...", this.experienciaForm);
     if (this.experienciaForm.value.es_actual) {
       this.experienciaForm.patchValue({ fecha_fin: null });
     }
@@ -56,16 +54,13 @@ export class EditarExperienciaComponent implements OnInit {
   }
 
   onClose(): void {
-    console.log("Closing modal...");
     this.bsModalRef.hide();
   }
 
   editarExperienciaEnApi(id: number, experiencia: Experiencia): void {
     this.experienciaService.edit(id, experiencia).subscribe({
       next: data => {
-        console.log("Editar Experiencia Service: " + data);
         this.editarExperiencia(this.experienciaForm.value);
-        // cerras el modal
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -75,11 +70,7 @@ export class EditarExperienciaComponent implements OnInit {
   crearExperienciaEnApi(experiencia: Experiencia): void {
     this.experienciaService.new(this.experienciaForm.value).subscribe({
       next: data => {
-        console.log("Nueva Experiencia Service: " + data);
-
-        // volver a listar o actualizar lista
-        this.triggerEvent()
-        // cerras el modal
+        this.triggerEvent();
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -98,8 +89,6 @@ export class EditarExperienciaComponent implements OnInit {
   }
 
   triggerEvent() {
-    // emit modal's response
-    console.log("Sending response from modal...");
     this.refreshEvent.emit();
   }
 }

@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   onClose(): void {
-    console.log("Closing modal...");
     this.bsModalRef.hide();
   }
 
@@ -38,7 +37,6 @@ export class LoginComponent implements OnInit {
   iniciarSesion(credenciales: Credenciales): any {
     this.loginService.login(credenciales).subscribe({
       next: data => {
-        console.log("Login Service: " + data);
         this.loginService.setPersonaAcreditadaId(data);
         this.loginService.setModoEditar();
         this.loginService.notifyAboutChange();
@@ -47,5 +45,4 @@ export class LoginComponent implements OnInit {
       error: err => alert("La información brindada es incorrecta")
     })
   }
-
 }

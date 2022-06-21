@@ -27,7 +27,6 @@ export class EducacionService {
   }
 
   public edit(id: number, estudio: Estudio): Observable<any> {
-    console.log("Llamando api " + id, estudio);
     return this.httpClient.put<any>(this.educacionURL + `editar/${id}`, estudio);
   }
 

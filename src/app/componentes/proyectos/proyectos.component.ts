@@ -43,41 +43,30 @@ export class ProyectosComponent implements OnInit, OnDestroy {
   }
 
   openDeleteModal(proyectoToDelete: Proyecto) {
-
     const initialState = {
       proyecto: proyectoToDelete
     };
 
-    // Open up the modal
     this.bsDelModalRef = this.delModalService.show(BorrarProyectosComponent, { initialState });
     this.bsDelModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsDelModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando proyectos")
       this.listarProyectos();
     })
   }
 
   openModalWithComponent(proyectoToEdit: Proyecto) {
-    console.log("Modo Editar", this.authService.getModoEditar())
-    console.log("Proyecto before edit", proyectoToEdit, this.personaCargadaId)
-
-    // Setup initial state for modal
     const initialState = {
       personaCargadaId: this.personaCargadaId,
       proyecto: proyectoToEdit,
       modoNuevo: !proyectoToEdit,
     };
 
-    // Open up the modal
     this.bsModalRef = this.modalService.show(EditarProyectosComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando proyectos")
-      this.listarProyectos()
+      this.listarProyectos();
     })
   }
 }

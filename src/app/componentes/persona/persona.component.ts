@@ -18,7 +18,7 @@ export class PersonaComponent implements OnInit, OnDestroy {
 
   @Input() personaCargadaId: number;
   personas: Persona[] = [];
-  personaLogueada: Persona;
+  persona: Persona;
   esModoEditar: boolean;
 
   bsModalRef: BsModalRef;
@@ -44,23 +44,17 @@ export class PersonaComponent implements OnInit, OnDestroy {
   buscarPersona(id: number): void {
     this.personaService.get(id).subscribe(
       data => {
-        this.personaLogueada = data;
+        this.persona = data;
       }
     )
   }
 
   openModalWithComponent(personaToEdit: Persona) {
-    console.log("Modo Editar", this.authService.getModoEditar())
-    console.log("Persona before edit", personaToEdit)
-
-    // Setup initial state for modal
     const initialState = {
-      personaLogueada: personaToEdit
+      persona: personaToEdit
     };
 
-    // Open up the modal
     this.bsModalRef = this.modalService.show(EditarPersonaComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
-
   }
 }

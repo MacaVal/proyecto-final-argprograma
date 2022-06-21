@@ -2,12 +2,9 @@ body{
     background-color: rgb(255, 255, 255);
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
+
 H1 {
     color:rgb(205, 127, 224);
-}
-
-H5, H6 {
-    color:rgb(102, 37, 121);
 }
 
 H3 {
@@ -20,6 +17,10 @@ H3 {
 
 H2, H4 {
     color:mediumpurple;
+}
+
+H5, H6 {
+    color:rgb(102, 37, 121);
 }
 
 p {
@@ -62,9 +63,11 @@ input, label {
     background-color:rgb(102, 37, 121);
     border-color:rgb(205, 127, 224);
 }
+
 .switchoff {
     border-color:rgb(205, 127, 224);
 }
+
 .img {
     width:25%;
     border: 3px solid rgb(205, 127, 224);

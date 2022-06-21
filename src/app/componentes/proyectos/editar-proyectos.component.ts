@@ -34,9 +34,6 @@ export class EditarProyectosComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // llamar a editar educacion con la educacion editada
-    console.log("Applying change to Server...", this.proyectoForm);
-
     if (this.modoNuevo) {
       this.proyectoForm.patchValue({ persona_id: this.personaCargadaId });
       this.crearProyectoEnApi(this.proyectoForm.value);
@@ -46,16 +43,13 @@ export class EditarProyectosComponent implements OnInit {
   }
 
   onClose(): void {
-    console.log("Closing modal...");
     this.bsModalRef.hide();
   }
 
   editarProyectoEnApi(id: number, proyecto: Proyecto): void {
     this.proyectosService.edit(id, proyecto).subscribe({
       next: data => {
-        console.log("Editar Proyectos Service: " + data);
         this.editarProyecto(this.proyectoForm.value);
-        // cerras el modal
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -65,11 +59,7 @@ export class EditarProyectosComponent implements OnInit {
   crearProyectoEnApi(proyecto: Proyecto): void {
     this.proyectosService.new(this.proyectoForm.value).subscribe({
       next: data => {
-        console.log("Nuevo Proyecto Service: " + data);
-
-        // volver a listar o actualizar lista
-        this.triggerEvent()
-        // cerras el modal
+        this.triggerEvent();
         this.bsModalRef.hide();
       },
       error: err => alert("La información brindada es incorrecta")
@@ -84,8 +74,6 @@ export class EditarProyectosComponent implements OnInit {
   }
 
   triggerEvent() {
-    // emit modal's response
-    console.log("Sending response from modal...");
     this.refreshEvent.emit();
   }
 }

@@ -13,11 +13,10 @@ export class PersonaService {
   constructor(private httpClient: HttpClient) { }
 
   public get(id: number): Observable<Persona> {
-    return this.httpClient.get<Persona>(this.personaURL + `buscar/${id}`)
+    return this.httpClient.get<Persona>(this.personaURL + `buscar/${id}`);
   }
 
   public edit(id: number, persona: Persona): Observable<any> {
-    console.log("Llamando api " + id, persona)
     return this.httpClient.put<any>(this.personaURL + `editar/${id}`, persona);
   }
 

@@ -79,7 +79,7 @@ export class AptitudesComponent implements OnInit, OnDestroy {
     this.bsModalRef.content.closeBtnName = 'Close';
 
     this.bsModalRef.content.refreshEvent.subscribe(() => {
-      this.listarAptitudes()
+      this.listarAptitudes();
     })
   }
 

@@ -50,27 +50,19 @@ export class ExperienciaComponent implements OnInit, OnDestroy {
   }
 
   openDeleteModal(experienciaToDelete: Experiencia) {
-
     const initialState = {
       experiencia: experienciaToDelete
     };
 
-    // Open up the modal
     this.bsDelModalRef = this.delModalService.show(BorrarExperienciaComponent, { initialState });
     this.bsDelModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsDelModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando experiencias")
       this.listarExperiencias();
     })
   }
 
   openModalWithComponent(experienciaToEdit: Experiencia) {
-    console.log("Modo Editar", this.authService.getModoEditar())
-    console.log("Experiencia before edit", experienciaToEdit, this.personaCargadaId)
-
-    // Setup initial state for modal
     const initialState = {
       personaCargadaId: this.personaCargadaId,
       experiencia: experienciaToEdit,
@@ -78,14 +70,11 @@ export class ExperienciaComponent implements OnInit, OnDestroy {
       listaTipoEmpleos: this.listaTipoEmpleos
     };
 
-    // Open up the modal
     this.bsModalRef = this.modalService.show(EditarExperienciaComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
 
-    // Subscribe to modal's response
     this.bsModalRef.content.refreshEvent.subscribe(() => {
-      console.log("Actualizando experiencias")
-      this.listarExperiencias()
+      this.listarExperiencias();
     })
   }
 

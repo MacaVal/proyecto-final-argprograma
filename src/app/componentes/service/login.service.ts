@@ -16,7 +16,6 @@ export class LoginService {
   constructor(private httpClient: HttpClient) { }
 
   notifyAboutChange() {
-    console.log("Starting notification");
     this.edicionNotifier.next(this.esModoEditar);
   }
 

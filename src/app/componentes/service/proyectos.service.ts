@@ -13,11 +13,10 @@ export class ProyectosService {
   constructor(private httpClient: HttpClient) { }
 
   public get(id: number): Observable<Proyecto> {
-    return this.httpClient.get<Proyecto>(this.proyectosURL + `buscar/${id}`)
+    return this.httpClient.get<Proyecto>(this.proyectosURL + `buscar/${id}`);
   }
 
   public edit(id: number, proyecto: Proyecto): Observable<any> {
-    console.log("Llamando api " + id, proyecto)
     return this.httpClient.put<any>(this.proyectosURL + `editar/${id}`, proyecto);
   }
 

@@ -13,11 +13,10 @@ export class AptitudesService {
   constructor(private httpClient: HttpClient) { }
 
   public get(id: number): Observable<Aptitud> {
-    return this.httpClient.get<Aptitud>(this.aptitudesURL + `buscar/${id}`)
+    return this.httpClient.get<Aptitud>(this.aptitudesURL + `buscar/${id}`);
   }
 
   public edit(id: number, aptitud: Aptitud): Observable<any> {
-    console.log("Llamando api " + id, aptitud)
     return this.httpClient.put<any>(this.aptitudesURL + `editar/${id}`, aptitud);
   }
 

@@ -20,7 +20,6 @@ export class ExperienciaService {
   }
 
   public edit(id: number, experiencia: Experiencia): Observable<any> {
-    console.log("Llamando api " + id, experiencia);
     return this.httpClient.put<any>(this.experienciaURL + `editar/${id}`, experiencia);
   }
 
@@ -28,7 +27,7 @@ export class ExperienciaService {
     return this.httpClient.get<Experiencia[]>(this.experienciaURL + `ver`);
   }
 
-  public deleteExperiencia(id: number): Observable<Experiencia> {
+  public delete(id: number): Observable<Experiencia> {
     return this.httpClient.delete<Experiencia>(this.experienciaURL + `borrar/${id}`);
   }
 

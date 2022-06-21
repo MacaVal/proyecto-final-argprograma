@@ -1,9 +1,11 @@
+<!-- EDITAR PERSONA -->
+
 <div>
   <div class="modal-header">
     <h5 class="modal-title">Información Perfil</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
   </div>
-  <div class="modal-body" *ngIf="personaLogueada">
+  <div class="modal-body" *ngIf="persona">
     <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="name" class="form-label labels">Nombre</label>
