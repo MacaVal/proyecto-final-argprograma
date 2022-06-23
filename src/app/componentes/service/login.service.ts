@@ -9,7 +9,7 @@ import { Credenciales } from '../models/credenciales';
 export class LoginService {
   edicionNotifier: Subject<boolean> = new Subject<boolean>();
 
-  loginURL = 'http://localhost:8080/login/';
+  loginURL = 'https://app-portfolioargprograma.herokuapp.com/login/';
   esModoEditar: boolean = false;
   personaAcreditadaId: number;
 

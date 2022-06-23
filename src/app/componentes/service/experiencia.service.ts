@@ -9,9 +9,8 @@ import { TipoEmpleo } from '../models/tipo_empleo';
 })
 export class ExperienciaService {
 
-  experienciaURL = 'http://localhost:8080/experiencia/';
-  educacionURL = 'http://localhost:8080/educacion/';
-  tipoEmpleoURL = 'http://localhost:8080/tipoempleo/'
+  experienciaURL = 'https://app-portfolioargprograma.herokuapp.com/experiencia/';
+  tipoEmpleoURL = 'https://app-portfolioargprograma.herokuapp.com/tipoempleo/'
 
   constructor(private httpClient: HttpClient) { }
 
