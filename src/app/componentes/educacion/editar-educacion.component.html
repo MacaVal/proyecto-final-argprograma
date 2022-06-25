@@ -9,7 +9,7 @@
     <form [formGroup]="educacionForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="name" class="form-label labels">Nombre de la institución</label>
-        <input size="55" type="text" class="inputs" formControlName="nombre_instituto" id="nombre_instituto">
+        <input type="text" class="inputs" formControlName="nombre_instituto" id="nombre_instituto">
       </div>
       <div>
         <div class="mb-3">
@@ -23,12 +23,12 @@
       </div>
       <div class="mb-3">
         <label for="fechaInicio" class="form-label labels">Fecha de inicio</label>
-        <input size="30" type="date" class="inputs" formControlName="fecha_inicio" id="fecha_inicio">
+        <input type="date" class="inputsCortos" formControlName="fecha_inicio" id="fecha_inicio">
       </div>
       <div class="mb-3">
         <label for="fechaFin" class="form-label labels">Fecha fin</label>
         <div *ngIf="!educacionForm.value.en_curso; else elseBlock">
-          <input size="56" type="date" class="inputs" formControlName="fecha_fin" id="fecha_fin">
+          <input type="date" class="inputsCortos" formControlName="fecha_fin" id="fecha_fin">
         </div>
         <ng-template #elseBlock> - </ng-template>
       </div>
@@ -42,15 +42,14 @@
       </div>
       <div class="mb-3">
         <label for="descripcion" class="form-label labels">Descripción</label>
-        <textarea cols="55" rows="5" type="text" class="inputs" formControlName="descripcion"
-          id="descripcion"></textarea>
+        <textarea rows="5" type="text" class="inputs" formControlName="descripcion" id="descripcion"></textarea>
       </div>
       <div class="mb-3">
         <label for="fotoEducacion" class="form-label labels">Link foto estudio</label>
-        <input size="55" type="text" class="inputs center" formControlName="foto_educacion" id="foto_educacion">
+        <input type="text" class="inputs" formControlName="foto_educacion" id="foto_educacion">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-info">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
       </div>
     </form>
   </div>

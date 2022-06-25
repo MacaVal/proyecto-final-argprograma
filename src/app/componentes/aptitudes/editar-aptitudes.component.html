@@ -9,14 +9,15 @@
     <form [formGroup]="aptitudesForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="name" class="form-label labels">Aptitud</label>
-        <input size="30" type="text" class="inputs" formControlName="nombre_aptitud" id="nombre_empresa">
+        <input type="text" class="inputsMedianos" formControlName="nombre_aptitud" id="nombre_empresa">
       </div>
       <div class="mb-3">
         <label for="fechaInicio" class="form-label labels">Porcentaje</label>
-        <input size="30" type="text" class="inputs" formControlName="porcentaje" id="fecha_inicio">
+        <input type="text" class="inputsMedianos" placeholder="Ingrese sólo el número que desee sin incluir %"
+          formControlName="porcentaje" id="fecha_inicio">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-info">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
       </div>
     </form>
   </div>

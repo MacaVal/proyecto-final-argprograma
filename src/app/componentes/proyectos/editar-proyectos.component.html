@@ -9,23 +9,22 @@
     <form [formGroup]="proyectoForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="name" class="form-label labels">Nombre del proyecto</label>
-        <input size="55" type="text" class="inputs" formControlName="nombre_proyecto" id="nombre_proyecto">
+        <input type="text" class="inputs" formControlName="nombre_proyecto" id="nombre_proyecto">
       </div>
       <div class="mb-3">
         <label for="descripcion" class="form-label labels">Descripción</label>
-        <textarea cols="55" rows="5" type="text" class="inputs" formControlName="descripcion"
-          id="descripcion"></textarea>
+        <textarea rows="5" type="text" class="inputs" formControlName="descripcion" id="descripcion"></textarea>
       </div>
       <div class="mb-3">
         <label for="urlProyecto" class="form-label labels">Link de referencia</label>
-        <input size="55" type="text" class="inputs center" formControlName="url_proyecto" id="foto_proyecto">
+        <input type="text" class="inputs" formControlName="url_proyecto" id="foto_proyecto">
       </div>
       <div class="mb-3">
         <label for="fotoProyecto" class="form-label labels">Link foto proyecto</label>
-        <input size="55" type="text" class="inputs center" formControlName="foto_proyecto" id="foto_proyecto">
+        <input type="text" class="inputs" formControlName="foto_proyecto" id="foto_proyecto">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-info">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
       </div>
     </form>
   </div>
