@@ -2,13 +2,13 @@
 
 <div>
   <div class="modal-header">
-    <h5 class="modal-title">Información Experiencia laboral</h5>
+    <h5 class="modal-title">Información Skill</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
   </div>
   <div class="modal-body">
     <form [formGroup]="aptitudesForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="name" class="form-label labels">Aptitud</label>
+        <label for="name" class="form-label labels">Skill</label>
         <input type="text" class="inputsMedianos" formControlName="nombre_aptitud" id="nombre_empresa">
       </div>
       <div class="mb-3">
@@ -17,7 +17,7 @@
           formControlName="porcentaje" id="fecha_inicio">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Agregar" : "Actualizar"}}</button>
       </div>
     </form>
   </div>

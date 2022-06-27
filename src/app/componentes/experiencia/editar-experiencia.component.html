@@ -39,7 +39,7 @@
       <div class="mb-3">
         <label for="tipoEmpleo" class="form-label labels">Categoría de empleo</label>
         <select class="form-select inputs" aria-label="Tipo de empleo" formControlName="tipo_empleo_id">
-          <option hidden selected>Elegir categoría de empleo</option>
+          <option value=null hidden selected>Seleccione categoría de empleo</option>
           <option *ngFor="let tipoEmpleo of listaTipoEmpleos" [ngValue]="tipoEmpleo.id">{{tipoEmpleo.nombre_tipo}}
           </option>
         </select>
@@ -50,10 +50,11 @@
       </div>
       <div class="mb-3">
         <label for="fotoExperiencia" class="form-label labels">Link foto experiencia laboral</label>
-        <input type="text" class="inputs" formControlName="foto_experiencia" id="foto_experiencia">
+        <input placeholder="Preferentemente foto de forma cuadrada" type="text" class="inputs"
+          formControlName="foto_experiencia" id="foto_experiencia">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Agregar" : "Actualizar"}}</button>
       </div>
     </form>
   </div>

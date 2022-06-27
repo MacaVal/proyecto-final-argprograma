@@ -35,7 +35,7 @@
       <div class="mb-3">
         <label for="título" class="form-label labels">Título</label>
         <select class="form-select inputs" aria-label="Título" formControlName="titulo_id">
-          <option hidden selected>Elegir título</option>
+          <option value=null hidden selected>Seleccione título</option>
           <option *ngFor="let titulo of listaTitulos" [ngValue]="titulo.id">{{titulo.nombre_titulo}}
           </option>
         </select>
@@ -46,10 +46,11 @@
       </div>
       <div class="mb-3">
         <label for="fotoEducacion" class="form-label labels">Link foto estudio</label>
-        <input type="text" class="inputs" formControlName="foto_educacion" id="foto_educacion">
+        <input placeholder="Preferentemente foto de forma cuadrada" type="text" class="inputs"
+          formControlName="foto_educacion" id="foto_educacion">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Crear" : "Actualizar"}}</button>
+        <button class="btn btn-outline-info modalButton">{{modoNuevo ? "Agregar" : "Actualizar"}}</button>
       </div>
     </form>
   </div>
